@@ -89,10 +89,18 @@ Subtiles can be a subtle issue for transcoding. Containers have a limited number
 
 <sup>4</sup>DVB-SUB [(SUB + IDX)](https://forum.videohelp.com/threads/261451-Difference-between-SUB-and-IDX-file) is another name for VobSub files.
 
-To extract ass subtitles, the following code can be used. `0:s:0` means the first subtitle, so `0:s:1` would be the second subtitle.
+To extract subtitles, the following code can be used. `0:s:0` means the first subtitle, so `0:s:1` would be the second subtitle.
+
+Ass subtitles
 ```bash
-ffmpeg -dump_attachment:t "" -i file.mkv -map 0:s:1 -c:s ass extracted-subtitle.ass
+ffmpeg -dump_attachment:t "" -i file.mkv -map 0:s:1 -c:s ass extracted-subtitle.ass`
 ```
+
+Extract subtitles from recorded OTA content
+```bash
+ffmpeg -f lavfi -i "movie=Ronin (1998).ts[out+subcc]" -map 0:1  "Ronin (1998).srt"
+```
+
 
 #### Forced Subtitles
 
