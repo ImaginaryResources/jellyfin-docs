@@ -89,6 +89,11 @@ Subtiles can be a subtle issue for transcoding. Containers have a limited number
 
 <sup>4</sup>DVB-SUB [(SUB + IDX)](https://forum.videohelp.com/threads/261451-Difference-between-SUB-and-IDX-file) is another name for VobSub files.
 
+To extract subtitles, the following code can be used. `0:s:0` means the first subtitle, so `1:s:0` would be the second subtitle.
+```bash
+ffmpeg -dump_attachment:t "" -i file.mkv -map 0:s:0 -c:s ass extracted-subtitle.ass
+```
+
 #### Forced Subtitles
 
 "Forced subtitles are common on movies and only provide subtitles when the characters speak a foreign or alien language, or a sign, flag, or other text in a scene is not translated in the localization and dubbing process. In some cases, foreign dialogue may be left untranslated if the movie is meant to be seen from the point of view of a particular character who does not speak the language in question." - [Wikipedia](https://en.wikipedia.org/wiki/Subtitles#Categories)
