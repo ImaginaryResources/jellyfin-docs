@@ -93,7 +93,7 @@ To extract subtitles, the following code can be used. `0:s:0` means the first su
 
 Ass subtitles
 ```bash
-ffmpeg -dump_attachment:t "" -i file.mkv -map 0:s:1 -c:s ass extracted-subtitle.ass`
+ffmpeg -dump_attachment:t "" -i file.mkv -map 0:s:1 -c:s ass extracted-subtitle.ass
 ```
 
 Extract subtitles from recorded OTA content
