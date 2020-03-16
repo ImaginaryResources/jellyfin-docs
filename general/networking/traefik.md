@@ -69,6 +69,7 @@ services:
       traefik.frontend.headers.customResponseHeaders: X-Robots-Tag:noindex,nofollow,nosnippet,noarchive,notranslate,noimageindex
       traefik.frontend.headers.frameDeny: "true"
       traefik.frontend.headers.customFrameOptionsValue: 'allow-from https://example.com'
+      #traefik.frontend.auth.basic.users: xxx:xxx
     restart: unless-stopped
 
   jellyfin:
