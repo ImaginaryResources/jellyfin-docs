@@ -28,7 +28,7 @@ $ sudo docker network create traefik
 ### docker-compose.yml
 
 ```
-version: '3.5'
+version: '2'
 networks:
   traefik:
     name: traefik
