@@ -46,9 +46,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.toml:/traefik.toml
       - ./acme.json:/acme.json
-# optional configuration needed for duckdns
-#    environment:
-#      - DUCKDNS_TOKEN=redacted
     labels:
       traefik.enable: "true"
       traefik.backend: traefik
@@ -182,24 +179,3 @@ $ docker-compose up -d
 Congratulations, your stack with Traefik and Jellyfin is running!
 
 Go to the domain you used earlier in the config file and your Jellyfin server will be running with HTTPS (AES 256) enabled.
-
-### DuckDNS Configuration
-
-```
-version: '3.5'
-
-services:
-  duckdns:
-    image: linuxserver/duckdns
-    container_name: duckdns
-    environment:
-     # - PUID=1000 #optional
-     # - PGID=1000 #optional
-      - TZ=America/New_York
-      - SUBDOMAINS=example.duckdns.org
-      - TOKEN=redacted
-      - LOG_FILE=false #optional
-   # volumes:
-   #   - </path/to/appdata/config>:/config #optional
-    restart: unless-stopped
-```
